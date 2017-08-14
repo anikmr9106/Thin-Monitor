@@ -32,6 +32,7 @@ namespace Thin_Monitor
 
             IWait<IWebDriver> wait = new WebDriverWait(driver, TimeSpan.FromMinutes(1));
             wait.Until(driver1 => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
+            Thread.Sleep(TimeSpan.FromSeconds(10));
             driver.SwitchTo().Frame("AppFrame");
             //driver.SwitchTo().Frame("EikonNowMarker");
             driver.SwitchTo().Frame("internal");

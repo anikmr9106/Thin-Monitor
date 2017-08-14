@@ -18,7 +18,7 @@ namespace Thin_Monitor.Work_Flow
 
             //Adding Ric
             Actions act_row = new Actions(driver);
-            act_row.MoveToElement(mon.first_row).DoubleClick().Click().SendKeys("A").SendKeys(Keys.Enter).Build().Perform();
+            act_row.MoveToElement(mon.sec_row).DoubleClick().Click().SendKeys("A").SendKeys(Keys.Enter).Build().Perform();
 
             //Adding Column
             Actions act_col1 = new Actions(driver);
