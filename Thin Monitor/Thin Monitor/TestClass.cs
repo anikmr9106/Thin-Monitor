@@ -30,6 +30,8 @@ namespace Thin_Monitor
             Eikon_Login login = new Eikon_Login();
             login.eikonlogin(driver);
 
+            driver.Manage().Window.Maximize();
+
             IWait<IWebDriver> wait = new WebDriverWait(driver, TimeSpan.FromMinutes(1));
             wait.Until(driver1 => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
             Thread.Sleep(TimeSpan.FromSeconds(10));

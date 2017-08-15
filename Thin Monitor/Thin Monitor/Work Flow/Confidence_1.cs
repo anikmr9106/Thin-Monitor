@@ -1,8 +1,10 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using RelevantCodes.ExtentReports;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -26,8 +28,8 @@ namespace Thin_Monitor.Work_Flow
                 // Adding 11th Column
                 mon.plus_btn.Click();
                 Actions act_col11 = new Actions(driver);
-                act_col11.MoveToElement(mon.Coll_11).DoubleClick().Click().SendKeys("TR.PricePctChgYTD ").SendKeys(Keys.Enter).Build().Perform();
-                ExtentReport.ReportLog(test, "Pass", "Add Column With " + mon.Coll_11.Text, driver);
+                act_col11.MoveToElement(mon.Col_11).DoubleClick().Click().SendKeys("TR.PricePctChgYTD ").SendKeys(Keys.Enter).Build().Perform();
+                ExtentReport.ReportLog(test, "Pass", "Add Column With " + mon.Col_11.Text, driver);
             }
             catch
             {
@@ -39,8 +41,8 @@ namespace Thin_Monitor.Work_Flow
                 // Adding 12th Column
                 mon.plus_btn.Click();
                 Actions act_col12 = new Actions(driver);
-                act_col12.MoveToElement(mon.Coll_12).DoubleClick().Click().SendKeys("TR.Price52WeekHighDate").SendKeys(Keys.Enter).Build().Perform();
-                ExtentReport.ReportLog(test, "Pass", "Add Column With " + mon.Coll_12.Text, driver);
+                act_col12.MoveToElement(mon.Col_12).DoubleClick().Click().SendKeys("TR.Price52WeekHighDate").SendKeys(Keys.Enter).Build().Perform();
+                ExtentReport.ReportLog(test, "Pass", "Add Column With " + mon.Col_12.Text, driver);
             }
             catch
             {
@@ -53,8 +55,8 @@ namespace Thin_Monitor.Work_Flow
                 // Adding 13th Column
                 mon.plus_btn.Click();
                 Actions act_col13 = new Actions(driver);
-                act_col13.MoveToElement(mon.Coll_13).DoubleClick().Click().SendKeys("TR.CompanyMarketCap").SendKeys(Keys.Enter).Build().Perform();
-                ExtentReport.ReportLog(test, "Pass", "Add Column With " + mon.Coll_13.Text, driver);
+                act_col13.MoveToElement(mon.Col_13).DoubleClick().Click().SendKeys("TR.CompanyMarketCap").SendKeys(Keys.Enter).Build().Perform();
+                ExtentReport.ReportLog(test, "Pass", "Add Column With " + mon.Col_13.Text, driver);
             }
             catch
             {
@@ -66,8 +68,8 @@ namespace Thin_Monitor.Work_Flow
                 // Adding 14th Column
                 mon.plus_btn.Click();
                 Actions act_col14 = new Actions(driver);
-                act_col14.MoveToElement(mon.Coll_14).DoubleClick().Click().SendKeys("CF_VOLUME").SendKeys(Keys.Enter).Build().Perform();
-                ExtentReport.ReportLog(test, "Pass", "Add Column With " + mon.Coll_14.Text, driver);
+                act_col14.MoveToElement(mon.Col_14).DoubleClick().Click().SendKeys("CF_VOLUME").SendKeys(Keys.Enter).Build().Perform();
+                ExtentReport.ReportLog(test, "Pass", "Add Column With " + mon.Col_14.Text, driver);
             }
 
             catch
@@ -78,8 +80,8 @@ namespace Thin_Monitor.Work_Flow
             try
             {
                 //Adding RICs
-                Actions act_row = new Actions(driver);
-                act_row.MoveToElement(mon.sec_row).DoubleClick().Click().SendKeys("BNPP.PA").SendKeys(Keys.Enter).Build().Perform();
+                Actions act_row0 = new Actions(driver);
+                act_row0.MoveToElement(mon.sec_row).DoubleClick().Click().SendKeys("BNPP.PA").SendKeys(Keys.Enter).Build().Perform();
                 ExtentReport.ReportLog(test, "Pass", " Add RIC" + mon.sec_row.Text, driver);
             }
 
@@ -157,8 +159,8 @@ namespace Thin_Monitor.Work_Flow
             {
                 //Adding Multi Table
                 mon.setting_btn.Click();
-                Actions act = new Actions(driver);
-                act.MoveToElement(mon.Multitable).MoveToElement(mon.twotable).Click().Build().Perform();
+                Actions act_Multi = new Actions(driver);
+                act_Multi.MoveToElement(mon.Multitable).MoveToElement(mon.twotable).Click().Build().Perform();
 
                 ExtentReport.ReportLog(test, "Pass", "Table Two Added", driver);
             }
@@ -169,17 +171,59 @@ namespace Thin_Monitor.Work_Flow
 
             try
             {
-                //Drag and Drop
-                Actions act = new Actions(driver);
-                act.MoveToElement(mon.Fifth_row).DragAndDrop(mon.Fourth_row, mon.table2_row_3).Build().Perform();
+                //Adding Group Header and adding RICs
+                Actions act_row = new Actions(driver);
+                act_row.MoveToElement(mon.table2_row_3).DoubleClick().Click().SendKeys("'Group Header").SendKeys(Keys.Enter).Build().Perform();
+                ExtentReport.ReportLog(test, "Pass", "Addded Header by name " + mon.table2_row_3.Text, driver);                      DataTable table = Excellib.ExceltoDataTable(@"F:\TechM\Thin-Monitor\Thin Monitor\Thin Monitor\Common\Data.xlsx");
+                int count = Excellib.getrowcount(table);
+                Excellib.popuateInCollection(@"F:\TechM\Thin-Monitor\Thin Monitor\Thin Monitor\Common\Data.xlsx");
+                string part1 = "//*[@id='section3']/div/div[2]/div[";
+                string part2 = "]/div";
+                for(int i=4;i<count+4;i++)
+                {
+                    string fullpath = part1 + i + part2;
+                    Actions act_rowi = new Actions(driver);
+                    act_rowi.MoveToElement(driver.FindElement(By.XPath(fullpath))).DoubleClick().Click().SendKeys(Excellib.ReadData(i,"RIC")).SendKeys(Keys.Enter).Build().Perform();
+                }
+
+                ExtentReport.ReportLog(test, "Pass", "Added RICs Under the"+mon.table2_row_3.Text, driver);
             }
             catch
             {
-                ExtentReport.ReportLog(test, "Fail", "Not Able to drag and drop the chain", driver);
+               ExtentReport.ReportLog(test, "Fail", "Did not added Header", driver);
             }
 
+            try
+            {
+                //Adding Portfolio
+                mon.main_combobox.Click();
+                Actions act_port = new Actions(driver);
+                act_port.MoveToElement(mon.main_addportfoliolist).Click().Build().Perform();
+                Thread.Sleep(TimeSpan.FromSeconds(7));
+                mon.portfolio_search_textbox.SendKeys("test_portfolio_sharing");
+                mon.portfoilio_result_1.Click();
+                mon.portfoilio_okbtn.Click();
 
-            ExtentReport.ReportStop(test);
+                ExtentReport.ReportLog(test, "Pass", "Portfolio Added", driver);
+            }
+
+            catch
+            {
+                ExtentReport.ReportLog(test, "Fail", "Not Added Portfolio", driver);
+            }
+
+            //Sorting 
+            Actions act_sort = new Actions(driver);
+            act_sort.MoveToElement(mon.Col_7).ContextClick().Build().Perform();
+            Thread.Sleep(TimeSpan.FromSeconds(5));
+           // driver.SwitchTo().Frame("AppFrame");
+            driver.SwitchTo().Frame("internal");
+            driver.SwitchTo().Frame("AppFrame");
+            Actions act_sort1 = new Actions(driver);
+            act_sort1.MoveToElement(mon.contextclick_sort_asce).Click().Build().Perform();
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+            Actions act_sort2 = new Actions(driver);
+            act_sort2.MoveToElement(mon.contextclick_sort_asce_everyone).Click().Build().Perform();
         }
     }
 }
