@@ -58,5 +58,12 @@ namespace Thin_Monitor
             con.addcolumn(driver);
         }
 
-    }
+        [Test]
+        public void E_Sorting()
+        {
+            Sorting sort = new Sorting();
+            sort.sort_column(driver);
+        }
+
+        }
 }

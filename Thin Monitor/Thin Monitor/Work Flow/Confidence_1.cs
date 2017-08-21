@@ -174,12 +174,13 @@ namespace Thin_Monitor.Work_Flow
                 //Adding Group Header and adding RICs
                 Actions act_row = new Actions(driver);
                 act_row.MoveToElement(mon.table2_row_3).DoubleClick().Click().SendKeys("'Group Header").SendKeys(Keys.Enter).Build().Perform();
-                ExtentReport.ReportLog(test, "Pass", "Addded Header by name " + mon.table2_row_3.Text, driver);                      DataTable table = Excellib.ExceltoDataTable(@"F:\TechM\Thin-Monitor\Thin Monitor\Thin Monitor\Common\Data.xlsx");
+                ExtentReport.ReportLog(test, "Pass", "Addded Header by name " + mon.table2_row_3.Text, driver);
+                DataTable table = Excellib.ExceltoDataTable(@"D:\E Drive\Anil Github\Thin Monitor\Thin-Monitor\Thin Monitor\Thin Monitor\Common\Data.xlsx");
                 int count = Excellib.getrowcount(table);
-                Excellib.popuateInCollection(@"F:\TechM\Thin-Monitor\Thin Monitor\Thin Monitor\Common\Data.xlsx");
+                Excellib.popuateInCollection(@"D:\E Drive\Anil Github\Thin Monitor\Thin-Monitor\Thin Monitor\Thin Monitor\Common\Data.xlsx");
                 string part1 = "//*[@id='section3']/div/div[2]/div[";
                 string part2 = "]/div";
-                for(int i=4;i<count+4;i++)
+                for(int i=4;i<count;i++)
                 {
                     string fullpath = part1 + i + part2;
                     Actions act_rowi = new Actions(driver);
@@ -212,18 +213,7 @@ namespace Thin_Monitor.Work_Flow
                 ExtentReport.ReportLog(test, "Fail", "Not Added Portfolio", driver);
             }
 
-            //Sorting 
-            Actions act_sort = new Actions(driver);
-            act_sort.MoveToElement(mon.Col_7).ContextClick().Build().Perform();
-            Thread.Sleep(TimeSpan.FromSeconds(5));
-           // driver.SwitchTo().Frame("AppFrame");
-            driver.SwitchTo().Frame("internal");
-            driver.SwitchTo().Frame("AppFrame");
-            Actions act_sort1 = new Actions(driver);
-            act_sort1.MoveToElement(mon.contextclick_sort_asce).Click().Build().Perform();
-            Thread.Sleep(TimeSpan.FromSeconds(2));
-            Actions act_sort2 = new Actions(driver);
-            act_sort2.MoveToElement(mon.contextclick_sort_asce_everyone).Click().Build().Perform();
+            
         }
     }
 }

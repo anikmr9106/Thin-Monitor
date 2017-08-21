@@ -67,6 +67,7 @@
     <Compile Include="Work Flow\AddRic.cs" />
     <Compile Include="Work Flow\Confidence_1.cs" />
     <Compile Include="Work Flow\Eikon_Login.cs" />
+    <Compile Include="Work Flow\Sorting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Common\Data.xlsx" />
