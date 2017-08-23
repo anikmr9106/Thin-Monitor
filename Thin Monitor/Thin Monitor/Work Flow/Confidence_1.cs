@@ -175,9 +175,9 @@ namespace Thin_Monitor.Work_Flow
                 Actions act_row = new Actions(driver);
                 act_row.MoveToElement(mon.table2_row_3).DoubleClick().Click().SendKeys("'Group Header").SendKeys(Keys.Enter).Build().Perform();
                 ExtentReport.ReportLog(test, "Pass", "Addded Header by name " + mon.table2_row_3.Text, driver);
-                DataTable table = Excellib.ExceltoDataTable(@"D:\E Drive\Anil Github\Thin Monitor\Thin-Monitor\Thin Monitor\Thin Monitor\Common\Data.xlsx");
+                DataTable table = Excellib.ExceltoDataTable(MyPath.loginDataFile);
                 int count = Excellib.getrowcount(table);
-                Excellib.popuateInCollection(@"D:\E Drive\Anil Github\Thin Monitor\Thin-Monitor\Thin Monitor\Thin Monitor\Common\Data.xlsx");
+                Excellib.popuateInCollection(MyPath.loginDataFile);
                 string part1 = "//*[@id='section3']/div/div[2]/div[";
                 string part2 = "]/div";
                 for(int i=4;i<count;i++)
@@ -213,7 +213,7 @@ namespace Thin_Monitor.Work_Flow
                 ExtentReport.ReportLog(test, "Fail", "Not Added Portfolio", driver);
             }
 
-            
+            ExtentReport.ReportStop(test);
         }
     }
 }

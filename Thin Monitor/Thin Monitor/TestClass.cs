@@ -34,7 +34,7 @@ namespace Thin_Monitor
 
             IWait<IWebDriver> wait = new WebDriverWait(driver, TimeSpan.FromMinutes(1));
             wait.Until(driver1 => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
-            Thread.Sleep(TimeSpan.FromSeconds(10));
+            Thread.Sleep(TimeSpan.FromSeconds(3));
             driver.SwitchTo().Frame("AppFrame");
             //driver.SwitchTo().Frame("EikonNowMarker");
             driver.SwitchTo().Frame("internal");
@@ -65,5 +65,19 @@ namespace Thin_Monitor
             sort.sort_column(driver);
         }
 
+        [Test]
+        public void F_AutoHide()
+        {
+            AutoHide auto = new AutoHide();
+            auto.auto_hide(driver);
         }
+
+        [Test]
+        public void G_AllTemplate()
+        {
+            AllTemplate template = new AllTemplate();
+            template.alltemplate(driver);
+        }
+
+    }
 }

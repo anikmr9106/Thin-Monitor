@@ -140,11 +140,219 @@ namespace Thin_Monitor.Page_Object
         [FindsBy(How = How.Id, Using = "cog-menu-preference")]
         public IWebElement perference { get; set; }
 
-        // Perferences-Miscellaneous
+        // Perferences-Miscellaneous   
         [FindsBy(How = How.Id, Using = "tab-miscellaneous")]
         public IWebElement perference_miscellaneous { get; set; }
 
-       
+        // Auto Hide Checkbox
+        [FindsBy(How = How.XPath, Using = "//div[contains(@id,'dialog')]/div/div/div[2]/div/div[1]/div[5]/div[1]/label")]
+        public IWebElement autohide_checkbox { get; set; }
+
+        // Perference Ok Button
+        [FindsBy(How = How.XPath, Using = "//div[contains(@id,'dialog')]/div/div/div[2]/div/div[2]/div/div[2]/button[2]")]
+        public IWebElement perference_okbtn { get; set; }
+
+        //Templates Elements
+        // Default Template 
+        [FindsBy(How = How.Id, Using = "cog-menu-template-default")]
+        public IWebElement cog_menu_template_default { get; set; }
+
+        // Default Template 
+        [FindsBy(How = How.Id, Using = "cog-menu-columnTemplate")]
+        public IWebElement cog_menu_columnTemplate { get; set; }
+
+        // Asset_Management Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-folder-Asset_Management")]
+        public IWebElement cog_menu_Asset_Management { get; set; }
+
+        // Banking_&_Research Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-folder-Banking_&_Research")]
+        public IWebElement cog_menu_Banking_Research { get; set; }
+
+        // Bonds Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-folder-Bonds")]
+        public IWebElement cog_menu_Bonds { get; set; }
+
+        // Equity Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-folder-Equity")]
+        public IWebElement cog_menu_Equity { get; set; }
+
+        // Funds Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-folder-Funds")]
+        public IWebElement cog_menu_Funds { get; set; }
+
+        // Futures Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Futures.Futures.monitor-template")]
+        public IWebElement cog_menu_Futures { get; set; }
+
+        // FXMM Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.FXMM.FXMM.monitor-template")]
+        public IWebElement cog_menu_FXMM { get; set; }
+
+        // Options Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Options.Options.monitor-template")]
+        public IWebElement cog_menu_Options { get; set; }
+
+        // All Template
+        [FindsBy(How = How.Id, Using = "cog-menu-all-templates")]
+        public IWebElement cog_menu_All_Template { get; set; }
+
+        //Template Under Asset Management
+        // Portfolio Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Asset Management.Portfolio.Portfolio.monitor-template")]
+        public IWebElement cog_menu_Asset_Management_Portfolio { get; set; }
+
+        // Portfolio (Cost Basis) Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Asset Management.Portfolio (Cost Basis).PortfolioCostBasis.monitor-template")]
+        public IWebElement cog_menu_Asset_Management_Portfolio_Cost_Basis { get; set; }
+
+        // Prop Data - Price Performance Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Asset Management.Prop Data - Price Performance.Prop-PricePerformance.monitor-template")]
+        public IWebElement cog_menu_Asset_Management_Prop_Data_Price { get; set; }
+
+        // Prop Data - Earning Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Asset Management.Prop Data - Earnings.Prop-Earnings.monitor-template")]
+        public IWebElement cog_menu_Asset_Management_Prop_Data_Earning { get; set; }
+
+        //Templates Under Banking and Research
+        // Comprehensive Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Banking & Research.Comprehensive.Banking-General.monitor-template")]
+        public IWebElement cog_menu_Banking_Research_Comprehensive { get; set; }
+
+        // Comparables Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Banking & Research.Comparables.Banking-Comparables.monitor-template")]
+        public IWebElement cog_menu_Banking_Research_Comparables { get; set; }
+
+        // Asset Management Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Banking & Research.Asset Managers.Banking-AssetManagers.monitor-template")]
+        public IWebElement cog_menu_Banking_Asset_Management { get; set; }
+
+        // Banks And Specialist Finance Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Banking & Research.Banks & Specialist Finance.Banking-BanksnSpecialistFinance.monitor-template")]
+        public IWebElement cog_menu_Banking_Banks_Specialist { get; set; }
+
+        // Financial Service Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Banking & Research.Banks & Specialist Finance.Banking-BanksnSpecialistFinance.monitor-template")]
+        public IWebElement cog_menu_Banking_Financial_Service { get; set; }
+
+        // Insurnace Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Banking & Research.Insurance.Banking-Insurance.monitor-template")]
+        public IWebElement cog_menu_Banking_Insurance { get; set; }
+
+        // Oil and Gas Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Banking & Research.Oil & Gas.Banking-OilnGas.monitor-template")]
+        public IWebElement cog_menu_Banking_Oil_Gas { get; set; }
+
+        // Trading Multiples Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Banking & Research.Trading Multiples.Banking-TradingMultiples.monitor-template")]
+        public IWebElement cog_menu_Banking_Trading_Multiples { get; set; }
+
+        //Templates Under Bonds
+        // Bonds Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Bonds.Bonds.Bonds.monitor-template")]
+        public IWebElement cog_menu_Bonds_Bonds { get; set; }
+
+        // CoCo Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Bonds.CoCo.CoCoBonds.monitor-template")]
+        public IWebElement cog_menu_Bonds_CoCo { get; set; }
+
+        // Convertible Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Bonds.Convertible.Convertible.monitor-template")]
+        public IWebElement cog_menu_Bonds_Convertible { get; set; }
+
+        //Templates Under Equity
+        // Equity Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Equity.Equity.Equity.monitor-template")]
+        public IWebElement cog_menu_Equity_Equity { get; set; }
+
+        // Earning Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Equity.Earnings.Earnings.monitor-template")]
+        public IWebElement cog_menu_Equity_Earning { get; set; }
+
+        // HiLo Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Equity.HiLo.HiLo.monitor-template")]
+        public IWebElement cog_menu_Equity_HiLo { get; set; }
+
+        // Price Perf Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Equity.PricePerf.PricePerf.monitor-template")]
+        public IWebElement cog_menu_Equity_PricePerf { get; set; }
+
+        // Premarket Stats Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Equity.Premarket Stats.PremarketStats.monitor-template")]
+        public IWebElement cog_menu_Equity_Premarket_Stats { get; set; }
+
+        // Regular Hours Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Equity.Regular Hours.RegularHours.monitor-template")]
+        public IWebElement cog_menu_Equity_Regular_Hours { get; set; }
+
+        // Aftermkt Stats Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Equity.Aftermkt Stats.AftermktStats.monitor-template")]
+        public IWebElement cog_menu_Equity_Aftermkt_Stats { get; set; }
+
+        //Templates Under Funds
+        // Fund Performance CHF Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Performance CHF.FundPerformanceCHF.monitor-template")]
+        public IWebElement cog_menu_Funds_Fund_PerformanceCHF { get; set; }
+
+        // Fund Performance EUR Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Performance EUR.FundPerformanceEUR.monitor-template")]
+        public IWebElement cog_menu_Funds_Fund_PerformanceEUR { get; set; }
+
+        // Fund Performance GBP Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Performance GBP.FundPerformanceGBP.monitor-template")]
+        public IWebElement cog_menu_Funds_Fund_PerformanceGBP { get; set; }
+
+        // Fund Performance JPY Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Performance JPY.FundPerformanceJPY.monitor-template")]
+        public IWebElement cog_menu_Funds_Fund_PerformanceJPY { get; set; }
+
+        // Fund Performance USD Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Performance USD.FundPerformanceUSD.monitor-template")]
+        public IWebElement cog_menu_Funds_Fund_PerformanceUSD { get; set; }
+
+        // Fund Performance Fund Currency Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Performance Fund Currency.FundPerformanceFundCurrency.monitor-template")]
+        public IWebElement cog_menu_Funds_Fund_Performance_FundCurrency { get; set; }
+
+        // Fund 1 Year Risk Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund - 1 Year Risk.Fund1YearRisk.monitor-template")]
+        public IWebElement cog_menu_Funds_Fund_1YearRisk { get; set; }
+
+        // Fund 3 Year Risk Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund - 3 Year Risk.Fund3YearRisk.monitor-template")]
+        public IWebElement cog_menu_Funds_Fund_3YearRisk { get; set; }
+
+        // Fund 5 Year Risk Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund - 5 Year Risk.Fund5YearRisk.monitor-template")]
+        public IWebElement cog_menu_Funds_Fund_5YearRisk { get; set; }
+
+        // Fund 10 Year Risk Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund - 10 Year Risk.Fund10YearRisk.monitor-template")]
+        public IWebElement cog_menu_Funds_Fund_10YearRisk { get; set; }
+
+        // Fund Overview Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Overview.FundOverview.monitor-template")]
+        public IWebElement cog_menu_Funds_Fund_Overview { get; set; }
+
+        // Fund Latest Price and Total Net Assets Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Latest Price and Total Net Assets.FundLatestPriceTotalNetAssets.monitor-template")]
+        public IWebElement cog_menu_Funds_FundLatestPriceTotalNetAssets { get; set; }
+
+        // Fund Lipper Leader Ratings Overall Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Lipper Leader Ratings- Overall.FundLipperLeaderRatingsOverall.monitor-template")]
+        public IWebElement cog_menu_Funds_FundLipperLeaderRatingsOverall { get; set; }
+
+        // Fund Lipper Leader Ratings 3Year Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Lipper Leader Ratings- 3 Year.FundLipperLeaderRatings3Year.monitor-template")]
+        public IWebElement cog_menu_Funds_FundLipperLeaderRatings3Year { get; set; }
+
+        // Fund Lipper Leader Ratings 5Year Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Lipper Leader Ratings- 5 Year.FundLipperLeaderRatings5Year.monitor-template")]
+        public IWebElement cog_menu_Funds_FundLipperLeaderRatings5Year { get; set; }
+
+        // Fund Lipper Leader Ratings 10Year Template
+        [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Lipper Leader Ratings- 10 Year.FundLipperLeaderRatings10Year.monitor-template")]
+        public IWebElement cog_menu_Funds_FundLipperLeaderRatings10Year { get; set; }
     }
 }
 

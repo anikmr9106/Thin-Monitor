@@ -69,7 +69,7 @@ namespace Thin_Monitor.Work_Flow
 
             catch
             {
-                ExtentReport.ReportLog(test, "Fail", "Sorted in Ascending order Failed", driver);
+                ExtentReport.ReportLog(test, "Fail", "Selected Column is Sorted in Ascending order Failed", driver);
             }
 
             try
@@ -97,14 +97,15 @@ namespace Thin_Monitor.Work_Flow
                 driver.SwitchTo().Frame("EikonNowMarker");
                 driver.SwitchTo().Frame("AppFrame");
                 Assert.Less(mon.row1_col7.Text, mon.row2_col7.Text);
-                ExtentReport.ReportLog(test, "Pass", "Sorted in Descending order", driver);
+                ExtentReport.ReportLog(test, "Pass", "Column is Sorted in Descending order", driver);
             }
 
             catch
             {
-
+                ExtentReport.ReportLog(test, "Fail", "Sorted in Descending order Failed", driver);
             }
 
+            ExtentReport.ReportStop(test);
         }
 
         }
