@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\DataList.cs" />
     <Compile Include="Common\Excellib.cs" />
     <Compile Include="Common\ExtentReport.cs" />
     <Compile Include="Common\MyPath.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Work Flow\AutoHide.cs" />
     <Compile Include="Work Flow\Confidence_1.cs" />
     <Compile Include="Work Flow\Eikon_Login.cs" />
+    <Compile Include="Work Flow\GroupHeader.cs" />
     <Compile Include="Work Flow\Sorting.cs" />
     <Compile Include="Work Flow\TRGRID-1444.cs" />
   </ItemGroup>

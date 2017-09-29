@@ -21,6 +21,7 @@ namespace Thin_Monitor.Work_Flow
         {
             Page_Object.Monitor mon = new Page_Object.Monitor(driver);
 
+            Thread.Sleep(TimeSpan.FromSeconds(5));
             try
             {
                 //Adding RICs
@@ -28,16 +29,15 @@ namespace Thin_Monitor.Work_Flow
                 Actions act_port = new Actions(driver);
                 act_port.MoveToElement(mon.mon_new).Click().Build().Perform();
                 Thread.Sleep(TimeSpan.FromSeconds(7));
-                DataTable table = Excellib.ExceltoDataTable(@"D:\E Drive\Anil Github\Thin Monitor\Thin-Monitor\Thin Monitor\Thin Monitor\Common\Data.xlsx");
-                int count = Excellib.getrowcount(table);
-                Excellib.popuateInCollection(@"D:\E Drive\Anil Github\Thin Monitor\Thin-Monitor\Thin Monitor\Thin Monitor\Common\Data.xlsx");
                 string part1 = "//*[@id='section1']/div/div[2]/div[";
                 string part2 = "]/div";
-                for (int i = 1; i <= 20; i++)
+                int i = 1;
+                foreach (string j in DataList.RICsList())
                 {
                     string fullpath = part1 + i + part2;
                     Actions act_rowi = new Actions(driver);
-                    act_rowi.MoveToElement(driver.FindElement(By.XPath(fullpath))).DoubleClick().Click().SendKeys(Excellib.ReadData(i, "RIC")).SendKeys(Keys.Enter).Build().Perform();
+                    act_rowi.MoveToElement(driver.FindElement(By.XPath(fullpath))).DoubleClick().Click().SendKeys(j).SendKeys(Keys.Enter).Build().Perform();
+                    i++;
                 }
 
                 // Ascending Order Sorting 
@@ -106,6 +106,8 @@ namespace Thin_Monitor.Work_Flow
             }
 
             ExtentReport.ReportStop(test);
+
+            Thread.Sleep(TimeSpan.FromSeconds(5));
         }
 
         }

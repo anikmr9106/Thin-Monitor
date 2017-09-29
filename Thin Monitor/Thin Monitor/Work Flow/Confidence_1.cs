@@ -175,17 +175,17 @@ namespace Thin_Monitor.Work_Flow
                 Actions act_row = new Actions(driver);
                 act_row.MoveToElement(mon.table2_row_3).DoubleClick().Click().SendKeys("'Group Header").SendKeys(Keys.Enter).Build().Perform();
                 ExtentReport.ReportLog(test, "Pass", "Addded Header by name " + mon.table2_row_3.Text, driver);
-                DataTable table = Excellib.ExceltoDataTable(MyPath.loginDataFile);
-                int count = Excellib.getrowcount(table);
-                Excellib.popuateInCollection(MyPath.loginDataFile);
                 string part1 = "//*[@id='section3']/div/div[2]/div[";
                 string part2 = "]/div";
-                for(int i=4;i<count;i++)
+                int i = 4;
+                foreach (string j in DataList.RICsList())
                 {
                     string fullpath = part1 + i + part2;
                     Actions act_rowi = new Actions(driver);
-                    act_rowi.MoveToElement(driver.FindElement(By.XPath(fullpath))).DoubleClick().Click().SendKeys(Excellib.ReadData(i,"RIC")).SendKeys(Keys.Enter).Build().Perform();
+                    act_rowi.MoveToElement(driver.FindElement(By.XPath(fullpath))).DoubleClick().Click().SendKeys(j).SendKeys(Keys.Enter).Build().Perform();
+                    i++;
                 }
+                
 
                 ExtentReport.ReportLog(test, "Pass", "Added RICs Under the"+mon.table2_row_3.Text, driver);
             }
@@ -214,6 +214,8 @@ namespace Thin_Monitor.Work_Flow
             }
 
             ExtentReport.ReportStop(test);
+
+            Thread.Sleep(TimeSpan.FromSeconds(5));
         }
     }
 }

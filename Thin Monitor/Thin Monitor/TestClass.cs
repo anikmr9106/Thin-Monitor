@@ -79,5 +79,12 @@ namespace Thin_Monitor
             template.alltemplate(driver);
         }
 
+        [Test]
+        public void H_GroupHeader()
+        {
+            GroupHeader GH = new GroupHeader();
+            GH.groupheader(driver);
+        }
+
     }
 }

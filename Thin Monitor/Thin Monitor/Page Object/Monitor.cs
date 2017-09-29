@@ -23,7 +23,7 @@ namespace Thin_Monitor.Page_Object
         [FindsBy(How = How.Id, Using = "button-menu")]
         public IWebElement setting_btn { get; set; }
 
-        // 2st Row   
+        // 2st Row table 1   
         [FindsBy(How = How.XPath, Using = "//*[@id='section1']/div/div[2]/div[2]/div")]
         public IWebElement sec_row { get; set; }
 
@@ -353,6 +353,54 @@ namespace Thin_Monitor.Page_Object
         // Fund Lipper Leader Ratings 10Year Template
         [FindsBy(How = How.Id, Using = "cog-menu-template-en-US.Root.Funds.Fund Lipper Leader Ratings- 10 Year.FundLipperLeaderRatings10Year.monitor-template")]
         public IWebElement cog_menu_Funds_FundLipperLeaderRatings10Year { get; set; }
+
+        // Group Header Icon at Row 2 Table 1
+        [FindsBy(How = How.XPath, Using = "//*[@id='section1']/div/div[2]/div[2]/div/span/span/span[3]")]
+        public IWebElement GH_Row2_table1 { get; set; }
+
+        // Group Header Icon at Row 2 Table 1
+        [FindsBy(How = How.Id, Using = "classification-0")]
+        public IWebElement GH_Classifyby_btn { get; set; }
+
+        // Group Header Classify By Menu 
+        [FindsBy(How = How.XPath, Using = "/html/body/div[8]/coral-panel/coral-list/coral-list-item[@id='item01']")]
+        public IWebElement GH_Classifyby_item1 { get; set; }
+
+        // Group Header Classify By Menu 
+        [FindsBy(How = How.XPath, Using = "/html/body/div[8]/coral-panel/coral-list/coral-list-item[@id='item02']")]
+        public IWebElement GH_Classifyby_item2 { get; set; }
+
+        // Group Header Classify By Menu 
+        [FindsBy(How = How.XPath, Using = "/html/body/div[8]/coral-panel/coral-list/coral-list-item[@id='item03']")]
+        public IWebElement GH_Classifyby_item3 { get; set; }
+
+        // Group Header Classify By Menu 
+        [FindsBy(How = How.XPath, Using = "/html/body/div[8]/coral-panel/coral-list/coral-list-item[@id='item04']")]
+        public IWebElement GH_Classifyby_item4 { get; set; }
+
+        // Group Header Classify By Menu 
+        [FindsBy(How = How.XPath, Using = "/html/body/div[8]/coral-panel/coral-list/coral-list-item[@id='item05']")]
+        public IWebElement GH_Classifyby_item5 { get; set; }
+
+        // Group Header Classify By Menu 
+        [FindsBy(How = How.XPath, Using = "/html/body/div[8]/coral-panel/coral-list/coral-list-item[@id='item06']")]
+        public IWebElement GH_Classifyby_item6 { get; set; }
+
+        // Group Header Classify By Menu 
+        [FindsBy(How = How.XPath, Using = "/html/body/div[8]/coral-panel/coral-list/coral-list-item[@id='item07']")]
+        public IWebElement GH_Classifyby_item7 { get; set; }
+
+        // Group Header Classify By Menu 
+        [FindsBy(How = How.XPath, Using = "/html/body/div[8]/coral-panel/coral-list/coral-list-item[@id='item08']")]
+        public IWebElement GH_Classifyby_item8 { get; set; }
+
+        // Group Header Classify By Menu 
+        [FindsBy(How = How.XPath, Using = "/html/body/div[8]/coral-panel/coral-list/coral-list-item[@id='item09']")]
+        public IWebElement GH_Classifyby_item9 { get; set; }
+
+        // Classify By OK Button 
+        [FindsBy(How = How.XPath, Using = "//div[contains(@id,'dialog')]/div/div/div[3]/div/quartz-layout/quartz-layout[2]/coral-button[1]/button")]
+        public IWebElement GH_Classifyby_okbtn { get; set; }
     }
 }
 
